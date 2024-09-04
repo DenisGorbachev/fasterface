@@ -6,3 +6,5 @@ pub mod outcome;
 pub mod package;
 pub mod search_command;
 pub mod tui;
+mod widgets;
+pub use widgets::*;

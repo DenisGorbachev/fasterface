@@ -9,15 +9,12 @@ use crate::outcome::Outcome;
 #[command(args_conflicts_with_subcommands = true)]
 pub struct Cli {
     #[command(subcommand)]
-    command: Option<Command>,
+    command: Command,
 }
 
 impl Cli {
     pub async fn run(self, stdout: &mut impl Write, stderr: &mut impl Write) -> Outcome {
-        match self.command {
-            None => todo!(),
-            Some(command) => command.run(stdout, stderr).await,
-        }
+        self.command.run(stdout, stderr).await
     }
 }
 

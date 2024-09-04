@@ -17,7 +17,7 @@ summary = ""
 announcement = ""
 
 [dependencies]
-derive-new = { git = "https://github.com/OmarTawfik-forks/derive-new", branch = "impl-into" } # "0.6.0"
+derive-new = "0.7.0"
 #derive_more = { version = "1.0.0", features = ["full"] }
 #fmt-derive = "0.1.2"
 #derive_builder = "0.20.0"
@@ -32,9 +32,9 @@ clap = { version = "4.5.11", features = ["derive"] }
 tokio = { version = "1.39.2", features = ["macros", "fs", "net", "rt", "rt-multi-thread"] }
 stub-macro = { version = "0.1.3" }
 #not-found-error = { version = "0.2.1" }
-helpful = { path = "../helpful" }
+helpful = { git = "https://github.com/DenisGorbachev/helpful" }
 semver = { version = "1.0.23", features = ["serde"] }
-ratatui = { version = "0.28.0", features = ["crossterm"] }
+ratatui = { version = "0.28.0", features = ["crossterm", "unstable-widget-ref"] }
 crossterm = { version = "0.28.1", features = ["event-stream"] }
 futures = { version = "0.3.30" }
 

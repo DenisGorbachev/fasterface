@@ -1,12 +1,17 @@
 use crate::outcome::Outcome;
 use crate::tui::Terminal;
+use crate::Tree;
 use crossterm::event::{Event, EventStream, KeyCode};
+use derive_new::new;
 use futures::prelude::*;
 use ratatui::Frame;
 use std::io;
 
-#[derive(Default, Clone, Debug)]
-pub struct App {}
+#[allow(dead_code)]
+#[derive(new, Default, Clone, Debug)]
+pub struct App {
+    tree: Tree,
+}
 
 // impl From<Terminal> for App {
 //     fn from(terminal: Terminal) -> Self {
@@ -50,6 +55,7 @@ impl App {
     // }
 
     pub fn render_frame(&self, _frame: &mut Frame) -> io::Result<()> {
-        todo!()
+        // frame.render_widget_ref(&self.tree, frame.area());
+        Ok(())
     }
 }
