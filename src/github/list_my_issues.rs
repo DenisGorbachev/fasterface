@@ -1,7 +1,7 @@
 use clap::Parser;
 use derive_builder::Builder;
 use derive_new::new;
-use octocrab::{Octocrab, models::Repository, params::State};
+use octocrab::{models::Repository, params::State, Octocrab};
 use std::io::Write;
 
 #[derive(new, Builder, Parser, Debug)]
