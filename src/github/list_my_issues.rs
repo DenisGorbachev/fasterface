@@ -24,27 +24,40 @@ impl ListMyIssues {
             .personal_token(token)
             .build()?;
 
-        let issues = octocrab.issues()
-            .list()
-            .state(octocrab::params::State::Open)
-            .assignee(&username)
+        let repos = octocrab.current()
+            .list_repos_for_authenticated_user()
             .per_page(100)
             .send()
             .await?;
 
-        if issues.items.is_empty() {
-            writeln!(stdout, "No issues assigned to you.")?;
-        } else {
-            for issue in issues.items {
-                writeln!(
-                    stdout,
-                    "Repository: {}\nIssue: #{} - {}\nURL: {}\n",
-                    issue.repository.full_name,
-                    issue.number,
-                    issue.title,
-                    issue.html_url
-                )?;
+        let mut found_issues = false;
+
+        for repo in repos.items {
+            let issues = octocrab.issues(repo.owner.login, repo.name)
+                .list()
+                .state(octocrab::params::State::Open)
+                .assignee(&username)
+                .per_page(100)
+                .send()
+                .await?;
+
+            if !issues.items.is_empty() {
+                found_issues = true;
+                writeln!(stdout, "Repository: {}", repo.full_name)?;
+                for issue in issues.items {
+                    writeln!(
+                        stdout,
+                        "Issue: #{} - {}\nURL: {}\n",
+                        issue.number,
+                        issue.title,
+                        issue.html_url
+                    )?;
+                }
             }
+        }
+
+        if !found_issues {
+            writeln!(stdout, "No issues assigned to you in any of your repositories.")?;
         }
 
         Ok(())
