@@ -1,7 +1,7 @@
 use clap::Parser;
 use derive_builder::Builder;
 use derive_new::new;
-use octocrab::Octocrab;
+use octocrab::{Octocrab, models::Repository, params::State};
 use std::io::Write;
 
 #[derive(new, Builder, Parser, Debug)]
@@ -33,26 +33,8 @@ impl ListMyIssues {
         let mut found_issues = false;
 
         for repo in repos.items {
-            let issues = octocrab.issues(repo.owner.login, repo.name)
-                .list()
-                .state(octocrab::params::State::Open)
-                .assignee(&username)
-                .per_page(100)
-                .send()
-                .await?;
-
-            if !issues.items.is_empty() {
+            if self.list_issues_for_repo(&octocrab, &repo, &username, stdout).await? {
                 found_issues = true;
-                writeln!(stdout, "Repository: {}", repo.full_name)?;
-                for issue in issues.items {
-                    writeln!(
-                        stdout,
-                        "Issue: #{} - {}\nURL: {}\n",
-                        issue.number,
-                        issue.title,
-                        issue.html_url
-                    )?;
-                }
             }
         }
 
@@ -61,5 +43,37 @@ impl ListMyIssues {
         }
 
         Ok(())
+    }
+
+    async fn list_issues_for_repo(
+        &self,
+        octocrab: &Octocrab,
+        repo: &Repository,
+        username: &str,
+        stdout: &mut impl Write,
+    ) -> Result<bool, Box<dyn std::error::Error>> {
+        let issues = octocrab.issues(repo.owner.login.clone(), repo.name.clone())
+            .list()
+            .state(State::Open)
+            .assignee(username)
+            .per_page(100)
+            .send()
+            .await?;
+
+        if !issues.items.is_empty() {
+            writeln!(stdout, "Repository: {}", repo.full_name)?;
+            for issue in issues.items {
+                writeln!(
+                    stdout,
+                    "Issue: #{} - {}\nURL: {}\n",
+                    issue.number,
+                    issue.title,
+                    issue.html_url
+                )?;
+            }
+            Ok(true)
+        } else {
+            Ok(false)
+        }
     }
 }
