@@ -13,17 +13,24 @@ pub struct FunI18n {
     description: String,
     /// Notes (may contain implementation details) (e.g. `vec!["Returns an error if the directory is not empty"]`)
     notes: Vec<String>,
+    /// A search index
+    index: String,
 }
 
 pub static FUN_I18N_ALL_EN: LazyLock<Vec<FunI18n>> = LazyLock::new(FunI18n::en_all);
 
 impl FunI18n {
     pub fn new(name: impl Into<String>, title: impl Into<String>, description: impl Into<String>, notes: impl IntoIterator<Item = impl Into<String>>) -> Self {
+        let name = name.into();
+        let title = title.into();
+        let description = description.into();
+        let index = build_index(&name, &title, &description);
         Self {
-            name: name.into(),
-            title: title.into(),
-            description: description.into(),
+            name,
+            title,
+            description,
             notes: notes.into_iter().map(Into::into).collect(),
+            index,
         }
     }
 
@@ -48,8 +55,16 @@ impl FunI18n {
     }
 }
 
+pub fn build_index(name: &String, title: &String, description: &String) -> String {
+    let mut index = String::with_capacity(name.capacity() + title.capacity() + description.capacity());
+    index.push_str(name);
+    index.push_str(title);
+    index.push_str(description);
+    index.to_lowercase()
+}
+
 impl Contains<str> for FunI18n {
     fn contains(&self, needle: &str) -> bool {
-        self.name.contains(needle) || self.title.contains(needle) || self.description.contains(needle)
+        self.index.contains(&needle.to_lowercase())
     }
 }

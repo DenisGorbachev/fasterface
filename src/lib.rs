@@ -10,6 +10,7 @@ mod widgets;
 
 pub use widgets::*;
 
+pub mod context;
 pub mod ext;
 pub mod found;
 pub mod fun_name;

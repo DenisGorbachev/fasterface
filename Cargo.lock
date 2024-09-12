@@ -470,11 +470,13 @@ dependencies = [
  "not-found-error",
  "octocrab",
  "ratatui",
+ "rustc-hash",
  "semver",
  "serde",
  "standard-traits",
  "strum",
  "stub-macro",
+ "subtype",
  "tokio",
  "url",
  "url-macro",
@@ -1131,6 +1133,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "439ee305def115ba05938db6eb1644ff94165c5ab5e9420d1c1bcedbba909391"
 
 [[package]]
+name = "pretty-type-name"
+version = "1.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f0f73cdaf19b52e6143685c3606206e114a4dfa969d6b14ec3894c88eb38bd4b"
+
+[[package]]
 name = "proc-macro2"
 version = "1.0.86"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1198,6 +1206,12 @@ name = "rustc-demangle"
 version = "0.1.24"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "719b953e2095829ee67db738b3bfa9fa368c94900df327b3f07fe6e794d2fe1f"
+
+[[package]]
+name = "rustc-hash"
+version = "2.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "583034fd73374156e66797ed8e5b0d5690409c9226b22d87cb7f19821c05d152"
 
 [[package]]
 name = "rustix"
@@ -1547,6 +1561,16 @@ name = "subtle"
 version = "2.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "13c2bddecc57b384dee18652358fb23172facb8a2c51ccc10d74c157bdea3292"
+
+[[package]]
+name = "subtype"
+version = "0.1.0"
+source = "git+https://github.com/DenisGorbachev/subtype#50c335807083da00773bc5801777ea874a24563c"
+dependencies = [
+ "derive_more",
+ "pretty-type-name",
+ "standard-traits",
+]
 
 [[package]]
 name = "syn"

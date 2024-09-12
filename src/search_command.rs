@@ -20,8 +20,9 @@ impl SearchCommand {
         } = self;
         let funs = FUN_I18N_ALL_EN.iter().filter(|fun| fun.contains(&query));
         for fun in funs {
+            let name = fun.name();
             let title = fun.title();
-            writeln!(stdout, "{title}")?;
+            writeln!(stdout, "{name} - {title}")?;
         }
         Ok(())
     }
