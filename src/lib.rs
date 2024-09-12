@@ -7,4 +7,13 @@ pub mod package;
 pub mod search_command;
 pub mod tui;
 mod widgets;
+
 pub use widgets::*;
+
+pub mod ext;
+pub mod found;
+pub mod fun_name;
+pub mod funs;
+pub mod i18n;
+pub mod todo;
+pub mod traits;
