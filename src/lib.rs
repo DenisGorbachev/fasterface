@@ -16,5 +16,8 @@ pub mod found;
 pub mod fun_name;
 pub mod funs;
 pub mod i18n;
+pub mod layout;
+pub mod location_v1;
+pub mod test;
 pub mod todo;
 pub mod traits;

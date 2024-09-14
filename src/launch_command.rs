@@ -1,3 +1,4 @@
+use std::env::current_dir;
 use std::io::Write;
 
 use crate::app::App;
@@ -13,7 +14,8 @@ impl LaunchCommand {
         let terminal = tui::init()?;
         // let app = App::from(terminal);
         // let app = AppBuilder::default().terminal(terminal).build()?;
-        let app = App::default();
+        let current_dir = current_dir()?;
+        let app = App::create(current_dir);
         let result = app.run(terminal).await;
         tui::restore();
         result
