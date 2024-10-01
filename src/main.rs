@@ -2,8 +2,8 @@ use std::io::{stderr, stdout};
 
 use clap::Parser;
 
-use fasterface::cli::Cli;
-use fasterface::outcome::Outcome;
+use fasterface::Cli;
+use fasterface::Outcome;
 
 #[tokio::main]
 async fn main() -> Outcome {
