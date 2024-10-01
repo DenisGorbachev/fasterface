@@ -14,6 +14,10 @@ impl Context {
         self.map.insert(type_id, Box::new(value))
     }
 
+    pub fn insert_by_ref<T: Clone + 'static>(&mut self, value: &T) -> Option<Box<dyn Any>> {
+        self.insert(value.clone())
+    }
+
     pub fn get<T: 'static>(&self) -> Option<&T> {
         let type_id = TypeId::of::<T>();
         self.map.get(&type_id).map(|v| v.downcast_ref().unwrap())
