@@ -1,7 +1,7 @@
 use std::env::current_dir;
 use std::io::Write;
 
-use crate::app::App;
+use crate::app_v1::AppV1;
 use crate::outcome::Outcome;
 use crate::tui;
 use clap::Parser;
@@ -15,7 +15,7 @@ impl LaunchCommand {
         // let app = App::from(terminal);
         // let app = AppBuilder::default().terminal(terminal).build()?;
         let current_dir = current_dir()?;
-        let app = App::create(current_dir);
+        let app = AppV1::create(current_dir);
         let result = app.run(terminal).await;
         tui::restore();
         result

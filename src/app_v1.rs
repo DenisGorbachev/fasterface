@@ -15,7 +15,7 @@ use tui_textarea::{Input, Key, TextArea};
 
 #[allow(dead_code)]
 #[derive(new, Clone, Debug)]
-pub struct App {
+pub struct AppV1 {
     location: LocationV1,
     prompt: TextArea<'static>,
     tree: Tree,
@@ -30,7 +30,7 @@ pub struct App {
 //     }
 // }
 
-impl App {
+impl AppV1 {
     pub fn create(location: impl Into<LocationV1>) -> Self {
         let mut prompt = TextArea::default();
         prompt.set_cursor_line_style(Style::default());

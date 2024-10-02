@@ -1,4 +1,5 @@
-mod app;
+mod app_v1;
+mod app_v2;
 mod cli;
 mod command;
 mod context;
@@ -16,9 +17,10 @@ mod search_command;
 mod todo;
 mod traits;
 mod tui;
-mod widgets;
+mod types;
 
-pub use app::*;
+pub use app_v1::*;
+pub use app_v2::*;
 pub use cli::*;
 pub use command::*;
 pub use context::*;
@@ -36,4 +38,10 @@ pub use search_command::*;
 pub use todo::*;
 pub use traits::*;
 pub use tui::*;
-pub use widgets::*;
+pub use types::*;
+
+#[cfg(test)]
+mod testing;
+
+#[cfg(test)]
+pub use testing::*;
