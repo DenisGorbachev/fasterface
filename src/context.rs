@@ -27,10 +27,10 @@ impl Context {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use subtype::newtype_path_buf;
+    use subtype::subtype_path_buf;
 
-    newtype_path_buf!(pub struct Directory(PathBuf));
-    newtype_path_buf!(pub struct File(PathBuf));
+    subtype_path_buf!(pub struct Directory(PathBuf));
+    subtype_path_buf!(pub struct File(PathBuf));
 
     macro_rules! assert_eq_local {
         ($left:expr, $right:expr $(,)?) => {

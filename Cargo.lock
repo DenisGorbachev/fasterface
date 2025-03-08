@@ -1534,7 +1534,7 @@ dependencies = [
 [[package]]
 name = "standard-traits"
 version = "0.1.0"
-source = "git+https://github.com/DenisGorbachev/standard-traits#399226c889f740b135f9ab45f073629299a843f5"
+source = "git+https://github.com/DenisGorbachev/standard-traits#1260771a1c17d25380d10faa892f540e6851d157"
 
 [[package]]
 name = "static_assertions"
@@ -1585,7 +1585,7 @@ checksum = "13c2bddecc57b384dee18652358fb23172facb8a2c51ccc10d74c157bdea3292"
 [[package]]
 name = "subtype"
 version = "0.1.0"
-source = "git+https://github.com/DenisGorbachev/subtype#50c335807083da00773bc5801777ea874a24563c"
+source = "git+https://github.com/DenisGorbachev/subtype#82ddc245555d2e0c40502bb572f890b159c3efa6"
 dependencies = [
  "derive_more",
  "pretty-type-name",
