@@ -5,18 +5,35 @@
 # A faster UI for common commands
 
 [![Build](https://github.com/DenisGorbachev/fasterface/actions/workflows/ci.yml/badge.svg)](https://github.com/DenisGorbachev/fasterface)
-[![Documentation](https://docs.rs/fasterface/badge.svg)](https://docs.rs/fasterface)
-
-
-
 
 ## Installation
 
+Install as executable:
+
 ```shell
-cargo add fasterface url
+cargo install --locked fasterface
 ```
 
-**Important:** add the `url` crate too.
+Install as library dependency in your package:
+
+```shell
+cargo add fasterface
+```
+
+## Usage
+
+```shell
+Usage: fasterface
+       fasterface <COMMAND>
+
+Commands:
+  launch  
+  search  
+  help    Print this message or the help of the given subcommand(s)
+
+Options:
+  -h, --help  Print help
+```
 
 ## Gratitude
 
@@ -24,6 +41,6 @@ Like the project? [⭐ Star this repo](https://github.com/DenisGorbachev/fasterf
 
 ## License
 
-[Apache License 2.0](LICENSE-APACHE) or [MIT License](LICENSE-MIT) at your option.
+[Apache-2.0](LICENSE-APACHE) or [MIT](LICENSE-MIT).
 
-Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in this crate by you, as defined in the Apache-2.0 license, shall be dual licensed as above, without any additional terms or conditions.
+Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in this crate by you, shall be licensed as above, without any additional terms or conditions.
