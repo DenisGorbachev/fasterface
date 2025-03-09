@@ -70,8 +70,7 @@ async fn list_open_issues_on_repo_for_assignee(octocrab: &Octocrab, owner: impl 
     Ok(true)
 }
 
-#[expect(clippy::needless_lifetimes)]
-async fn get_issues_stream<'o>(octocrab: &'o Octocrab, owner: impl Into<String>, repo: impl Into<String>, username: impl Into<Filter<String>>) -> Result<impl Stream<Item = Result<Issue, octocrab::Error>> + 'o, Box<dyn Error>> {
+async fn get_issues_stream(octocrab: &Octocrab, owner: impl Into<String>, repo: impl Into<String>, username: impl Into<Filter<String>>) -> Result<impl Stream<Item = Result<Issue, octocrab::Error>> + '_, Box<dyn Error>> {
     let issues = octocrab.issues(owner, repo);
     let username = username.into();
     let username_str = into_str_filter(&username);
