@@ -1,6 +1,6 @@
 use crate::traits::Fun;
-use strum::EnumString;
 use FunName::*;
+use strum::EnumString;
 
 #[derive(EnumString, Eq, PartialEq, Hash, Clone, Copy, Debug)]
 pub enum FunName {

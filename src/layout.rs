@@ -1,7 +1,7 @@
+use ratatui::Frame;
 use ratatui::layout::Constraint::*;
 use ratatui::layout::Direction::*;
 use ratatui::layout::{Layout, Rect};
-use ratatui::Frame;
 
 #[expect(dead_code)]
 pub struct AppLayout {

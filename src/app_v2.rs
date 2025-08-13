@@ -1,10 +1,10 @@
-use crate::{find_entries_by_needle, Container, Input, LocationV1, Panel, SupportText, Text, Vertical, VirtualWidget};
+use crate::{Container, Input, LocationV1, Panel, SupportText, Text, Vertical, VirtualWidget, find_entries_by_needle};
+use LocationV1::*;
 use derive_getters::Getters;
 use derive_more::{From, Into};
 use derive_new::new;
 use not_found_error::NotFoundError;
 use stub_macro::stub;
-use LocationV1::*;
 
 #[derive(Debug)]
 pub struct Entry;

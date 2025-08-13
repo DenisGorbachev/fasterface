@@ -1,15 +1,15 @@
+use crate::Tree;
 use crate::location_v1::LocationV1;
 use crate::outcome::Outcome;
 use crate::tui::Terminal;
-use crate::Tree;
 use crossterm::event::{Event, EventStream, KeyCode, KeyModifiers};
 use derive_new::new;
 use futures::prelude::*;
+use ratatui::Frame;
 use ratatui::layout::{Constraint, Direction, Layout};
 use ratatui::style::Style;
 use ratatui::text::Line;
 use ratatui::widgets::{Block, BorderType, Padding, Paragraph};
-use ratatui::Frame;
 use std::io;
 use tui_textarea::{Input, Key, TextArea};
 
@@ -48,10 +48,10 @@ impl AppV1 {
         while let Some(result) = events.next().await {
             match result {
                 Ok(event) => {
-                    if let Event::Key(key) = event {
-                        if key.code == KeyCode::Esc || key.code == KeyCode::Char('c') && key.modifiers == KeyModifiers::CONTROL {
-                            break;
-                        }
+                    if let Event::Key(key) = event
+                        && (key.code == KeyCode::Esc || key.code == KeyCode::Char('c') && key.modifiers == KeyModifiers::CONTROL)
+                    {
+                        break;
                     }
                     match event.into() {
                         // ignore newlines

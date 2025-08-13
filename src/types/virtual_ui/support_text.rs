@@ -1,5 +1,5 @@
-use derive_more::From;
 use SupportText::*;
+use derive_more::From;
 
 #[derive(Ord, PartialOrd, Eq, PartialEq, Hash, Clone, Debug)]
 pub enum SupportText {

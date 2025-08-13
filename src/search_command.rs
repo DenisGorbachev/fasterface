@@ -1,5 +1,5 @@
 use crate::found::Found;
-use crate::i18n::{FunI18n, FUN_I18N_ALL_EN};
+use crate::i18n::{FUN_I18N_ALL_EN, FunI18n};
 use crate::outcome::Outcome;
 use clap::Parser;
 use isolang::Language;
