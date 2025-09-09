@@ -1,5 +1,20 @@
 # Notes
 
+## Uncategorized
+
+* The user must always see the functions that can be called in the current context
+* The context must support parsing the path
+* The primary screen should look like a dialog between the system and the user
+* The system must handle authentication
+* The app must handle authorization
+* The user must be able to trigger any action with any controller (mouse, keyboard, gamepad, ...)
+* The system must support keyboard navigation
+* The system must support keyboard shortcuts
+* The app must allow to assign custom keyboard shortcuts to custom actions
+* The user must be able to update an app
+* The user must be able to restart the app gracefully (allowing the app to finish the current tasks)
+* The user must be able to restart the app forcefully (not allowing the app to finish the current tasks)
+
 ## Needs
 
 ### Specialized programs for daily usage
