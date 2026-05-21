@@ -4,7 +4,11 @@
 
 # A faster UI for common commands
 
+[![Build](https://github.com/DenisGorbachev/fasterface/actions/workflows/ci.yml/badge.svg)](https://github.com/DenisGorbachev/fasterface)
 
+<!-- crate documentation start -->
+
+<!-- crate documentation end -->
 
 ## Installation
 

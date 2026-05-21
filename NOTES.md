@@ -33,7 +33,7 @@
 
 * Examples
   * Change the path of a local package in every project's Cargo.toml in `~/workspace`
-  * Convert *.heic to *.jpg in a specific directory
+  * Convert *.heic to*.jpg in a specific directory
 * Notes
   * This use-case is already covered by a combo of LLM + generic commands (find, grep, etc)
     * But low readability

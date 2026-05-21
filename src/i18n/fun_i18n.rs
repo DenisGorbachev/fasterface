@@ -56,6 +56,7 @@ impl FunI18n {
 }
 
 pub fn build_index(name: &String, title: &String, description: &String) -> String {
+    #![allow(clippy::arithmetic_side_effects)] // TODO
     let mut index = String::with_capacity(name.capacity() + title.capacity() + description.capacity());
     index.push_str(name);
     index.push_str(title);

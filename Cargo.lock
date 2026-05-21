@@ -1773,7 +1773,7 @@ checksum = "13c2bddecc57b384dee18652358fb23172facb8a2c51ccc10d74c157bdea3292"
 [[package]]
 name = "subtype"
 version = "0.1.0"
-source = "git+https://github.com/DenisGorbachev/subtype#508cde81d31c4f5c92ce5c220baecbc119298d1a"
+source = "git+https://github.com/DenisGorbachev/subtype#5dbe8ce0afa93ece56a20a667472d014538fda4e"
 dependencies = [
  "derive_more",
  "pretty-type-name",
