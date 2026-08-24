@@ -1,5 +1,5 @@
 use derive_more::From;
-use std::fmt::{Display, Formatter};
+use std::fmt::{Display, Formatter, Result as FmtResult};
 use std::path::PathBuf;
 
 /// It's OK to add more variants to this enum. If the enum tag has a `usize` type, it can have 2^64 variants.
@@ -13,7 +13,7 @@ pub enum LocationV1 {
 use LocationV1::*;
 
 impl Display for LocationV1 {
-    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, f: &mut Formatter<'_>) -> FmtResult {
         match self {
             None => f.write_str("<none>"),
             ThePathBuf(path_buf) => f.write_str(&path_buf.display().to_string()),

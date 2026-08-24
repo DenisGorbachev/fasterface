@@ -1,4 +1,5 @@
 use std::io;
+use std::panic::{set_hook, take_hook};
 
 use ratatui::{
     backend::CrosstermBackend,
@@ -20,8 +21,8 @@ pub fn init() -> io::Result<Terminal> {
 }
 
 fn set_panic_hook() {
-    let hook = std::panic::take_hook();
-    std::panic::set_hook(Box::new(move |info| {
+    let hook = take_hook();
+    set_hook(Box::new(move |info| {
         restore();
         hook(info);
     }));
